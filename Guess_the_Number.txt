@@ -1,0 +1,45 @@
+package com.company;
+import java.util.Random;
+import java.util.*;
+class Game{
+    public int number;
+    public int inputnumber;
+    public int guess=0;
+
+    Game(){
+        Random random=new Random();
+        this.number=random.nextInt(100);
+    }
+    void takeuserinput(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Guess the number ");
+        inputnumber=sc.nextInt();
+    }
+    boolean isCorrectNumber(){
+        guess++;
+        if(inputnumber==number){
+            System.out.println("Congratulations!! You Guessed right");
+            System.out.println("You Guess "+guess+" times");
+            return true;
+        } else if (inputnumber>number) {
+            System.out.println("Please Guess smaller number ");
+            return false;
+        } else if (inputnumber<number) {
+            System.out.println("Please Guess larger number");
+            return false;
+        }
+        return false;
+    }
+}
+
+public class Game1GuesstTheNumber {
+    public static void main(String[] args) {
+Game n=new Game();
+boolean b=false;
+while (!b){
+    n.takeuserinput();
+    b=n.isCorrectNumber();
+
+  }
+    }
+}
